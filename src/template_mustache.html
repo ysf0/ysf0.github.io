@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta http-equiv="cache-control" content="no-cache">
+    <META NAME="ROBOTS" CONTENT="NOARCHIVE">
+    <META NAME="GOOGLEBOT" CONTENT="NOARCHIVE">
+    <meta name="description" content="Detailed CV and portfolio with technologies and skills">
+    <meta name="keywords" content="resume">
+    <meta name="author" content="Yusuf Daglioglu">
+    <title>Yusuf Dağlıoğlu - CV</title>
+
+    <script>
+        function openNavigationBar() {
+          document.getElementById("navigationBar").style.width = "250px";
+        }
+        
+        function closeNavigationBar() {
+          document.getElementById("navigationBar").style.width = "0";
+        }
+    </script>
+
+    <style>
+        {{mainCss}}
+
+        {{#companyList}}
+        #{{id}}-block {
+            display: none;
+        }
+        #{{id}}-checkbox:checked ~ #{{id}}-block {
+            display: block;
+            visibility: visible;
+        }
+        {{/companyList}}
+
+        {{#companyList}}
+        {{#projectList}}
+        {{#allTechnologyStack}}
+        #{{id}}-block {
+            display: none;
+        }
+        #{{id}}-checkbox:checked ~ #{{id}}-block {
+            display: block;
+            visibility: visible;
+        }
+        {{/allTechnologyStack}}
+        {{/projectList}}
+        {{/companyList}}
+
+        {{#educationList}}
+        #{{id}}-block {
+            display: none;
+        }
+        #{{id}}-checkbox:checked ~ #{{id}}-block {
+            display: block;
+            visibility: visible;
+        }
+        {{/educationList}}
+    </style>
+</head>
+
+<body class="unselectable">
+
+    <div id="navigationBar" class="navigationBar hiddenOnPrint">
+        <a href="javascript:void(0)" class="closeNavigationBarButton" onclick="closeNavigationBar()">&times;</a>
+        <a href="#about">ABOUT</a>
+        <a href="#professionalExperience">PROFESSIONAL EXPERIENCE</a>
+        {{#companyList}}
+        <a href="#company-{{id}}">&nbsp;&nbsp;&nbsp; • {{name}}</a>
+        {{/companyList}}
+        <a href="#languageSkills">LANGUAGE SKILLS</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#personalInformation">PERSONAL INFORMATION</a>
+        <a href="#references">REFERENCES</a>
+    </div>
+
+    <div class="hiddenOnPrint fixedMenuBarForButton" onclick="openNavigationBar()">&#9776; Menu</div>
+
+    <div class="page-content-root">
+        <br>
+        <br>
+
+        <div class="div-frame">
+            <h1 id="about">Yusuf Dağlıoğlu • CV</h1>
+            <b>
+                <i>
+                    Full-Stack Software Developer
+                </i>
+            </b>
+            <br>
+            <br>
+            <br>
+            <i>Last update of CV: 27 March 2022</i>
+            <br>
+            <br>
+            <br>
+            <p class="text-justify-with-no-margin">
+                Problem solver and team player, passionate about architectural design patterns using Java and container technologies. Experienced in various domains for 9 years.
+            </p>
+            <br>
+            <br>
+            <a target='_blank' rel='noopener noreferrer' href="https://www.linkedin.com/in/yusuf1989d"><img
+                    alt="LinkedIn"
+                    src="https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=linkedin" /></a>
+            <br>
+            <a target='_blank' rel='noopener noreferrer' href="https://www.github.com/ysf0">
+                <img alt="Github" src="https://img.shields.io/badge/-GitHub-grey?style=flat-square&logo=github" /></a>
+            <br>
+        </div>
+
+        <div class="no-page-break-on-print" id="professionalExperience">
+            <div class="div-frame-main-title div-title-colors">
+                <h2>PROFESSIONAL EXPERIENCE</h2>
+            </div>
+        </div>
+
+        {{#companyList}}
+        <div id="company-{{id}}" class="div-border-with-shadow margin-left-extra-bold no-page-break-on-print">
+
+            <div class="table-styled-div-row">
+                <div class="table-styled-div-cell-left rightSidePaddingLong">
+                    <b>Company</b>
+                </div>
+                <div class="table-styled-div-cell-right">
+                    <h3>{{name}}</h3>
+                </div>
+            </div>
+            <div class="table-styled-div-row">
+                <div class="table-styled-div-cell-left">
+                    <b>Position</b>
+                </div>
+                <div class="table-styled-div-cell-right">
+                    {{position}}
+                </div>
+            </div>
+            <div class="table-styled-div-row">
+                <div class="table-styled-div-cell-left">
+                    <b>Date</b>
+                </div>
+                <div class="table-styled-div-cell-right">
+                    {{date}}
+                </div>
+            </div>
+            <div class="table-styled-div-row">
+                <div class="table-styled-div-cell-left">
+                    <b>URL</b>
+                </div>
+                <div class="table-styled-div-cell-right">
+                    <a target='_blank' rel='noopener noreferrer' href="{{url}}">{{urlDescription}}</a>
+                </div>
+            </div>
+
+            <br>
+            <b>About the company</b>
+            <br>
+            <p class="text-justify-with-no-margin"> {{about}}</p>
+            <br>
+
+            {{#longInfo}}
+            <br>
+            <input id="{{id}}-checkbox" type="checkbox" />
+            <label for="{{id}}-checkbox">More about company ▼</label>
+            <br>
+            <br>
+            <div class="info-block" id="{{id}}-block">
+                {{.}}
+            </div>
+            {{/longInfo}}
+        </div>
+
+        <div class="div-border-with-shadow no-page-break-on-print margin-left-tiny-bold">
+            <b>Projects at {{name}} ▼</b>
+        </div>
+
+        {{#projectList}}
+
+        <div class="div-border-with-shadow no-page-break-on-print margin-left-tiny-bold">
+
+            <div class="table-styled-div-row">
+                <div class="table-styled-div-cell-left">
+                    <b>Project</b>
+                </div>
+                <div class="table-styled-div-cell-right">
+                    <h4>{{name}}</h4>
+                </div>
+            </div>
+
+            <div class="table-styled-div-row">
+                <div class="table-styled-div-cell-left rightSidePaddingLong">
+                    <b>Duration</b>
+                </div>
+                <div class="table-styled-div-cell-right">
+                    {{duration}}
+                </div>
+            </div>
+
+            {{#urlExist}}
+            <div class="table-styled-div-row">
+                <div class="table-styled-div-cell-left">
+                    <b>URL</b>
+                </div>
+                <div class="table-styled-div-cell-right">
+                    {{#urlList}}
+                    • <a target='_blank' rel='noopener noreferrer' href='{{url}}'>{{description}}</a><br>
+                    {{/urlList}}
+                </div>
+            </div>
+            {{/urlExist}}
+
+            <br>
+            <b>Details</b>
+            <br>
+            <p class="text-justify-with-no-margin">
+                {{#detailList}}
+                • {{.}} <br>
+                {{/detailList}}
+            </p>
+
+            {{#highLevelTechnologyStackListExist}}
+            <br><br>
+            <b>Technologies:</b>
+            {{#highLevelTechnologyStackList}}
+            <p class="technology-keyword">{{.}}</p>
+            {{/highLevelTechnologyStackList}}
+            {{/highLevelTechnologyStackListExist}}
+            <br>
+            {{#allTechnologyStack}}
+            <br>
+            <input id="{{id}}-checkbox" type="checkbox" />
+            <label for="{{id}}-checkbox">Show all technologies ▼</label>
+            <br>
+            <br>
+            <div class="info-block" id="{{id}}-block">
+                {{#frontEndListExist}}
+                <b>Front-end</b> <br>
+                {{/frontEndListExist}}
+                {{#frontEndList}}
+                • {{.}} <br>
+                {{/frontEndList}}
+                {{#frontEndListExist}}
+                <br><br>
+                {{/frontEndListExist}}
+                {{#backEndListExist}}
+                <b>Back-end</b> <br>
+                {{/backEndListExist}}
+                {{#backEndList}}
+                • {{.}} <br>
+                {{/backEndList}}
+                {{#backEndListExist}}
+                <br><br>
+                {{/backEndListExist}}
+                {{#devopsListExist}}
+                <b>DevOps</b><br>
+                {{/devopsListExist}}
+                {{#devopsList}}
+                • {{.}} <br>
+                {{/devopsList}}
+                {{#devopsListExist}}
+                <br><br>
+                {{/devopsListExist}}
+                {{#toolListExist}}
+                <b>Tools</b> <br>
+                {{/toolListExist}}
+                {{#toolList}}
+                • {{.}} <br>
+                {{/toolList}}
+            </div>
+            {{/allTechnologyStack}}
+        </div>
+        {{/projectList}}
+        <br><br><br>
+        {{/companyList}}
+
+        <div class="no-page-break-on-print" id="languageSkills">
+            <div class="div-frame-main-title div-title-colors">
+                <h2>LANGUAGE SKILLS</h2>
+            </div>
+
+            <div class="div-frame">
+
+                {{#languageList}}
+                <div class="table-styled-div-row">
+                    <div class="table-styled-div-cell-left rightSidePaddingLong">
+                        <b>{{language}}</b>
+                    </div>
+                    <div class="table-styled-div-cell-right">
+                        {{level}}
+                    </div>
+                </div>
+                {{/languageList}}
+
+            </div>
+        </div>
+        <br><br>
+        <div>
+
+            <div class="div-frame-main-title div-title-colors" id="education">
+                <h2>EDUCATION</h2>
+            </div>
+
+            {{#educationList}}
+            <div class="div-border-with-shadow no-page-break-on-print">
+
+                <div class="table-styled-div-row">
+                    <div class="table-styled-div-cell-left">
+                        <b>Degree</b>
+                    </div>
+                    <div class="table-styled-div-cell-right">
+                        <h4>{{level}}</h4>
+                    </div>
+                </div>
+
+                <div class="table-styled-div-row">
+                    <div class="table-styled-div-cell-left">
+                        <b>Institute</b>
+                    </div>
+                    <div class="table-styled-div-cell-right">
+                        {{institute}}
+                    </div>
+                </div>
+
+                <div class="table-styled-div-row">
+                    <div class="table-styled-div-cell-left">
+                        <b>Date</b>
+                    </div>
+                    <div class="table-styled-div-cell-right">
+                        {{date}}
+                    </div>
+                </div>
+
+                <div class="table-styled-div-row">
+                    <div class="table-styled-div-cell-left rightSidePaddingLong">
+                        <b>Department</b>
+                    </div>
+                    <div class="table-styled-div-cell-right">
+                        {{department}}
+                    </div>
+                </div>
+
+                <div class="table-styled-div-row">
+                    <div class="table-styled-div-cell-left rightSidePaddingShort">
+                        <b>Grade Point Average (GPA)</b>
+                    </div>
+                    <div class="table-styled-div-cell-right">
+                        {{gradePointAverage}}
+                    </div>
+                </div>
+
+                {{#thesisDetail}}
+                <br><br>
+                <b>Thesis</b>
+                <br>
+                {{thesisDetail}}
+                {{/thesisDetail}}
+
+                {{#allTechnologyStack}}
+                <br><br>
+                <input id="{{id}}-checkbox" type="checkbox" />
+                <label for="{{id}}-checkbox">Show all technologies ▼</label>
+                <br>
+                <br>
+                <div class="info-block" id="{{id}}-block">
+                    {{#frontEndListExist}}
+                    <b>Frontend</b> <br>
+                    {{/frontEndListExist}}
+                    {{#frontEndList}}
+                    • {{.}} <br>
+                    {{/frontEndList}}
+                    {{#frontEndListExist}}
+                    <br><br>
+                    {{/frontEndListExist}}
+                    {{#backEndListExist}}
+                    <b>Backend</b> <br>
+                    {{/backEndListExist}}
+                    {{#backEndList}}
+                    • {{.}} <br>
+                    {{/backEndList}}
+                    {{#backEndListExist}}
+                    <br><br>
+                    {{/backEndListExist}}
+                    {{#devopsListExist}}
+                    <b>DevOps</b><br>
+                    {{/devopsListExist}}
+                    {{#devopsList}}
+                    • {{.}} <br>
+                    {{/devopsList}}
+                    {{#devopsListExist}}
+                    <br><br>
+                    {{/devopsListExist}}
+                    {{#toolListExist}}
+                    <b>Tools</b> <br>
+                    {{/toolListExist}}
+                    {{#toolList}}
+                    • {{.}} <br>
+                    {{/toolList}}
+                </div>
+                {{/allTechnologyStack}}
+            </div>
+            {{/educationList}}
+        </div>
+        <br><br>
+        <div class="no-page-break-on-print" id="personalInformation">
+            <div class="div-frame-main-title div-title-colors">
+                <h2>PERSONAL INFORMATION</h2>
+            </div>
+
+            <div class="div-frame">
+
+                {{#personalInformationList}}
+                <div class="table-styled-div-row">
+                    <div class="table-styled-div-cell-left rightSidePaddingShort">
+                        <b>{{key}}</b>
+                    </div>
+                    <div class="table-styled-div-cell-right">
+                        {{value}}
+                    </div>
+                </div>
+                {{/personalInformationList}}
+
+            </div>
+        </div>
+        <br><br>
+        <div class="no-page-break-on-print" id="references">
+            <div class="div-frame-main-title div-title-colors">
+                <h2>REFERENCES</h2>
+            </div>
+
+            <div class="div-frame">
+                Available upon request.
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+</html>

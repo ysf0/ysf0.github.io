@@ -1,0 +1,218 @@
+/* ******************* */
+/* NAVIGATION BAR      */
+/* ******************* */
+.navigationBar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 60px;
+    width: 250px;
+}
+
+.navigationBar a {
+    padding: 8px 8px 8px 20px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.navigationBar a:hover {
+   color: #f1f1f1;
+}
+
+.navigationBar .closeNavigationBarButton {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 51px;
+    margin-left: 50px;
+}
+
+@media print {
+    .hiddenOnPrint {
+        display: none;
+    }
+}
+
+.fixedMenuBarForButton {
+    padding: 10px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 26px;
+    color: #FFFFFF;
+}
+/* ******************* */
+/* NAVIGATION BAR      */
+/* ******************* */
+
+@media print {
+    a[href]:after {
+        content: " - "attr(href);
+    }
+}
+
+h3,
+h4 {
+    font-weight: normal
+}
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0px;
+}
+
+.rightSidePaddingLong {
+    padding-right: 40px
+}
+
+.rightSidePaddingShort {
+    padding-right: 15px
+}
+
+.technology-keyword {
+    color: white;
+    padding: 5px;
+    line-height: 2.0;
+    border-radius:8px;
+    background-color: blueviolet;
+    display: inline;
+}
+
+a {
+    /* This is important for very small screens. */
+    overflow-wrap: break-all;
+    word-wrap: break-all;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    -ms-hyphens: break-all;
+    -moz-hyphens: break-all;
+    -webkit-hyphens: break-all;
+    hyphens: break-all;
+}
+
+.text-justify-with-no-margin {
+    text-align: justify;
+    margin: 0;
+}
+
+label {
+    padding: 7px;
+    border-radius: 5px;
+    border: none;
+    background-color: #0d6efd;
+    color: white;
+}
+
+.info-block {
+    background-color: lightblue;
+    border-color: blue;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    display: none;
+}
+
+.no-page-break-on-print {
+    break-inside: avoid;
+}
+
+.div-frame-main-title {
+    margin-bottom: 4px;
+    margin-top: 4px;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.div-frame {
+    margin: 10px;
+    padding: 17px;
+    border-radius: 10px;
+}
+
+.div-border-with-shadow {
+    box-shadow: 0px 0px 4px #aaaaaa;
+    background-color: white;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    padding: 18px;
+    border-width: 0px;
+    border-style: solid;
+    border-color: white;
+}
+
+.margin-left-tiny-bold {
+    margin-left: 48px;
+    border-left-color: #313a46;
+    border-left-width: 5px;
+}
+
+.margin-left-extra-bold {
+    border-left-color: #313a46;
+    border-left-width: 24px;
+    border-radius: 10px;
+}
+
+.page-content-root {
+    max-width: 600px;
+    margin: auto;
+}
+
+.div-title-colors {
+    background-color: #313a46;
+    color: white;
+}
+
+b {
+    color: #9e3737;
+}
+
+body {
+    font-size: 14px;
+    background-color: #edf2f9;
+    font-family: Helvetica, sans-serif;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.table-styled-div-row {
+    display: table-row;
+}
+
+.table-styled-div-cell-left {
+    display: table-cell;
+}
+
+.table-styled-div-cell-right {
+    display: table-cell;
+    padding-bottom: 10px;
+}
+
+@media all and (max-width: 580px)
+{
+    .table-styled-div-cell-left {
+        display: block;
+    }
+
+    .table-styled-div-cell-right {
+        display: block;
+        padding-bottom: 15px;
+    }
+}
